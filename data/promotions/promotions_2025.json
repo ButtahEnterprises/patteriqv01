@@ -1,0 +1,149 @@
+[
+  {
+    "id": "P25-MAILER-OFFER",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2025-01-05",
+    "endDate": "2025-01-11",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed"
+  },
+  {
+    "id": "P25-MAILER-OFFER-2",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2025-01-12",
+    "endDate": "2025-01-18",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed"
+  },
+  {
+    "id": "P25-MAILER-OFFER-3",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2025-01-19",
+    "endDate": "2025-01-25",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed"
+  },
+  {
+    "id": "P25-BACK-TO-SCHOOL-B",
+    "name": "Back to School BOGO40%",
+    "description": "Back to School BOGO40%",
+    "startDate": "2025-06-29",
+    "endDate": "2025-07-19",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed"
+  },
+  {
+    "id": "P25-SET-FOR-SCHOOL-S",
+    "name": "SET FOR SCHOOL SALE (ONLINE ONLY): 25% off entire brand",
+    "description": "SET FOR SCHOOL SALE (ONLINE ONLY): 25% off entire brand",
+    "startDate": "2025-07-20",
+    "endDate": "2025-07-26",
+    "type": "Digital Offer",
+    "tags": [
+      "ulta",
+      "digital"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed"
+  },
+  {
+    "id": "P25-APP-EVENT-40-OFF",
+    "name": "App Event 40% off select skus",
+    "description": "App Event 40% off select skus",
+    "startDate": "2025-07-20",
+    "endDate": "2025-07-24",
+    "type": "App Promotion",
+    "tags": [
+      "in-store",
+      "ulta",
+      "app-event"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed"
+  },
+  {
+    "id": "P25-ULTA-10X-PLATINU",
+    "name": "Ulta 10x Platinum Event",
+    "description": "Ulta 10x Platinum Event",
+    "startDate": "2025-08-10",
+    "endDate": "2025-08-16",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed"
+  },
+  {
+    "id": "P25-TBC",
+    "name": "TBC",
+    "description": "TBC",
+    "startDate": "2025-08-24",
+    "endDate": "2025-09-20",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "tentative"
+  },
+  {
+    "id": "P25-FALL-HAUL-30-OFF",
+    "name": "Fall Haul 30% off Entire Brand",
+    "description": "Fall Haul 30% off Entire Brand",
+    "startDate": "2025-09-20",
+    "endDate": "2025-10-04",
+    "type": "Seasonal Sale",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed"
+  },
+  {
+    "id": "P25-EARLY-BLACK-FRID",
+    "name": "Early Black Friday TBD",
+    "description": "Early Black Friday TBD",
+    "startDate": "2025-10-26",
+    "endDate": "2025-11-15",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "tentative"
+  },
+  {
+    "id": "P25-TBC-2",
+    "name": "TBC",
+    "description": "TBC",
+    "startDate": "2025-12-07",
+    "endDate": "2025-12-27",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "tentative"
+  }
+]
