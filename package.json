@@ -1,0 +1,59 @@
+{
+  "name": "patterniq-v01",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed": "ts-node prisma/seed.ts",
+    "check:apis": "tsx scripts/check_apis.ts",
+    "test": "vitest run --passWithNoTests",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "playwright:install": "playwright install",
+    "start:demo": "DEMO_MODE=true USE_DB=false PORT=3007 npm run start",
+    "e2e:local": "PLAYWRIGHT_BASE_URL=http://localhost:3007 PLAYWRIGHT_NO_SERVER=1 npx playwright test",
+    "report:data-quality": "tsx scripts/report_data_quality.ts",
+    "check:data-health": "curl -s -H 'Cookie: piq_demo_mode=false' http://localhost:3000/api/data-health?weeks=4 | jq '.'"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.13.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.2.1",
+    "fast-glob": "^3.3.3",
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.539.0",
+    "next": "15.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "recharts": "^3.1.2",
+    "tailwind-merge": "^3.3.1",
+    "xlsx": "^0.18.5",
+    "zod": "^4.0.17"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.54.2",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20.19.10",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/supertest": "^2.0.15",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "prisma": "^6.13.0",
+    "supertest": "^6.3.3",
+    "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2",
+    "vitest": "^1.6.0"
+  },
+  "prisma": {
+    "seed": "npm run seed"
+  }
+}

@@ -1,0 +1,53 @@
+// prisma/schema.prisma
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Week {
+  id        Int       @id @default(autoincrement())
+  iso       String    @unique
+  year      Int
+  startDate DateTime
+  endDate   DateTime
+  sales     SalesFact[]
+
+  @@index([startDate])
+}
+
+model Store {
+  id      Int         @id @default(autoincrement())
+  code    String      @unique
+  name    String
+  city    String?
+  state   String?
+  sales   SalesFact[]
+}
+
+model Sku {
+  id      Int         @id @default(autoincrement())
+  upc     String?     @unique
+  brand   String?
+  name    String
+  sales   SalesFact[]
+}
+
+model SalesFact {
+  id       Int    @id @default(autoincrement())
+  weekId   Int
+  storeId  Int
+  skuId    Int
+  units    Int     @default(0)
+  revenue  Decimal @default(0)
+
+  week   Week  @relation(fields: [weekId],  references: [id])
+  store  Store @relation(fields: [storeId], references: [id])
+  sku    Sku   @relation(fields: [skuId],   references: [id])
+
+  @@index([weekId, storeId, skuId])
+  @@index([storeId, weekId])
+}

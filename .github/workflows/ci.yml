@@ -1,0 +1,182 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  quality-checks:
+    name: Quality checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Build Next.js
+        run: npm run build
+
+      - name: Start Next.js server
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DEMO_MODE: "false"
+          USE_DB: "true"
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: |
+          nohup npm run start -- -p 3000 > /tmp/next.log 2>&1 &
+          for i in {1..60}; do
+            if curl -fsS http://localhost:3000/api/config > /dev/null; then
+              echo "Next.js is up"; break;
+            fi
+            if [ "$i" -eq 60 ]; then
+              echo "Server did not start in time" >&2; exit 1;
+            fi
+            sleep 1
+          done
+
+      - name: Data health gate (latest week >= 90%)
+        run: |
+          curl -s -H "Cookie: piq_demo_mode=false" http://localhost:3000/api/data-health?weeks=4 \
+            | jq '.[-1].pctFullAllocated >= 90' | grep true
+
+      - name: Show server logs on failure
+        if: failure()
+        run: |
+          echo '--- /tmp/next.log ---'
+          (tail -n 200 /tmp/next.log || true)
+
+  e2e:
+    name: E2E (${{ matrix.spec }})
+    needs: quality-checks
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        spec: [leaderboards.spec.ts, promotions.spec.ts, drilldown.spec.ts]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      - name: Build Next.js
+        run: npm run build
+
+      - name: Start Next.js server
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DEMO_MODE: "false"
+          USE_DB: "true"
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: |
+          nohup npm run start -- -p 3000 > /tmp/next.log 2>&1 &
+          for i in {1..60}; do
+            if curl -fsS http://localhost:3000/api/config > /dev/null; then
+              echo "Next.js is up"; break;
+            fi
+            if [ "$i" -eq 60 ]; then
+              echo "Server did not start in time" >&2; exit 1;
+            fi
+            sleep 1
+          done
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright (${{ matrix.spec }})
+        env:
+          PLAYWRIGHT_BASE_URL: http://localhost:3000
+          PLAYWRIGHT_NO_SERVER: "1"
+        run: npx playwright test tests/e2e/${{ matrix.spec }}
+
+      - name: Scan Playwright artifacts for secrets (always)
+        run: |
+          set +e
+          patterns='AKIA|BEGIN PRIVATE KEY|Authorization:|DATABASE_URL|x-api-key|ghp_[A-Za-z0-9]{36}'
+          for d in playwright-report test-results; do
+            if [ -d "$d" ]; then
+              echo "Scanning $d for secret-like patterns..."
+              hits=$(grep -RIEn "$patterns" "$d" || true)
+              if [ -n "$hits" ]; then
+                echo "Potential secret patterns detected in $d:" && echo "$hits" | head -c 4000
+              else
+                echo "No matches in $d"
+              fi
+            fi
+          done
+
+      - name: Scan Playwright artifacts for secrets (on failure)
+        if: failure()
+        run: |
+          set +e
+          patterns='AKIA|BEGIN PRIVATE KEY|Authorization:|DATABASE_URL|x-api-key|ghp_[A-Za-z0-9]{36}'
+          for d in playwright-report test-results; do
+            if [ -d "$d" ]; then
+              echo "Scanning $d for secret-like patterns..."
+              hits=$(grep -RIEn "$patterns" "$d" || true)
+              if [ -n "$hits" ]; then
+                echo "::warning title=Potential secret patterns detected in $d::${hits:0:4000}"
+              else
+                echo "No matches in $d"
+              fi
+            fi
+          done
+
+      - name: Upload Playwright HTML report (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.spec }}
+          path: playwright-report
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Upload Playwright traces (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces-${{ matrix.spec }}
+          path: test-results
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Show server logs on failure
+        if: failure()
+        run: |
+          echo '--- /tmp/next.log ---'
+          (tail -n 200 /tmp/next.log || true)
