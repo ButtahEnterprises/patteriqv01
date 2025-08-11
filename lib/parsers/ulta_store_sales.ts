@@ -42,6 +42,10 @@ function findHeader(rows: unknown[][]): { idx: number; colStoreNum: number; colS
 
 export function parseUltaStoreSales(filePath: string, weekEndDate: Date): StoreSalesRow[] {
   const wb = XLSX.readFile(filePath, { cellDates: true });
+  return parseStoreSalesWorkbook(wb, weekEndDate);
+}
+
+function parseStoreSalesWorkbook(wb: XLSX.WorkBook, weekEndDate: Date): StoreSalesRow[] {
   const ws = wb.Sheets['StoreSalesReport'];
   if (!ws) return [];
 
@@ -79,6 +83,10 @@ export function parseUltaStoreSales(filePath: string, weekEndDate: Date): StoreS
   return out;
 }
 
+export function parseUltaStoreSalesFromBuffer(data: ArrayBuffer | Buffer, weekEndDate: Date): StoreSalesRow[] {
+  const wb = XLSX.read(data, { type: 'buffer', cellDates: true });
+  return parseStoreSalesWorkbook(wb, weekEndDate);
+}
 export function allocateStoreSalesToSkus(storeTotals: StoreSalesRow[], skuAllStores: NormalizedRow[]): NormalizedRow[] {
   if (!storeTotals.length) return [];
 

@@ -32,6 +32,11 @@ jobs:
         run: npm run lint
 
       - name: Test
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DEMO_MODE: "false"
+          USE_DB: "true"
+          NEXT_TELEMETRY_DISABLED: "1"
         run: npm test
 
       - name: Install jq
