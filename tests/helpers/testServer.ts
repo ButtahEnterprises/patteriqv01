@@ -7,16 +7,21 @@ import { GET as storeTrendGET } from '../../src/app/api/stores/[storeId]/trend/r
 import { GET as skuBreakdownGET } from '../../src/app/api/stores/[storeId]/sku-breakdown/route';
 import { GET as topProductsGET } from '../../src/app/api/leaderboards/top-products/route';
 import { GET as topStoresGET } from '../../src/app/api/leaderboards/top-stores/route';
+import { POST as ultaIngestPOST } from '../../src/app/api/ingest/ulta/route';
 
 export type Handler = (req: Request) => Promise<Response> | Response;
 
-const routes: Record<string, Handler> = {
+const getRoutes: Record<string, Handler> = {
   '/api/health': healthGET,
   '/api/weekly-summary': weeklySummaryGET,
   '/api/kpi/trend': trendGET,
   '/api/stores-at-risk': storesAtRiskGET,
   '/api/leaderboards/top-products': topProductsGET,
   '/api/leaderboards/top-stores': topStoresGET,
+};
+
+const postRoutes: Record<string, Handler> = {
+  '/api/ingest/ulta': ultaIngestPOST,
 };
 
 export function createServer(): http.Server {
@@ -26,7 +31,12 @@ export function createServer(): http.Server {
       const pathname = url.pathname;
       const method = nodeReq.method || 'GET';
 
-      let handler: Handler | undefined = method === 'GET' ? routes[pathname] : undefined;
+      let handler: Handler | undefined;
+      if (method === 'GET') {
+        handler = getRoutes[pathname];
+      } else if (method === 'POST') {
+        handler = postRoutes[pathname];
+      }
       // dynamic GET routes
       if (!handler && method === 'GET') {
         if (/^\/api\/stores\/\d+\/trend$/.test(pathname)) handler = storeTrendGET;

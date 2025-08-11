@@ -15,3 +15,12 @@ export const RISK_THRESHOLD = {
   pctDrop: 0.2,
   lookbackWeeks: 8,
 };
+
+// Dynamic getters for request-time evaluation (avoid import-time capture)
+export function getDemoModeEnv(): boolean {
+  return (process.env.DEMO_MODE ?? "true").toLowerCase() === "true";
+}
+
+export function getUseDbEnv(): boolean {
+  return (process.env.USE_DB ?? "true").toLowerCase() === "true";
+}
