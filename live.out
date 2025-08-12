@@ -1,0 +1,350 @@
+
+> patterniq-v01@0.1.0 start
+> next start
+
+   ▲ Next.js 15.4.6
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.208:3000
+
+ ✓ Starting...
+ ✓ Ready in 535ms
+[2025-08-11T17:44:58.433Z] INFO API success {
+  rid: 'a0e20c0e-df5b-4ada-ad02-4765e50da37e',
+  url: 'http://localhost:3000/api/health',
+  ms: 71
+}
+[2025-08-11T17:45:45.194Z] INFO API success {
+  rid: '062b05ee-3ad7-4c97-9101-ed7aa3e0481f',
+  url: 'http://localhost:3000/api/data-health?weeks=4',
+  ms: 35
+}
+[2025-08-11T17:46:54.250Z] INFO API success {
+  rid: 'd7fd230a-e859-460d-b8a0-50fb8bf08b58',
+  url: 'http://localhost:3000/api/data-health?weeks=4',
+  ms: 110
+}
+[2025-08-11T17:47:16.250Z] INFO API success {
+  rid: 'b2634811-35ce-4a33-b37e-0ee71ea15764',
+  url: 'http://localhost:3000/api/data-health?weeks=4',
+  ms: 37
+}
+[2025-08-11T17:57:30.539Z] INFO API success {
+  rid: '2912d148-3b18-4031-9d15-7cd86cfedebd',
+  url: 'http://localhost:3000/api/weeks',
+  ms: 21
+}
+[2025-08-11T17:57:30.582Z] INFO API success {
+  rid: '8137dfc4-0b26-4412-a409-eee967903185',
+  url: 'http://localhost:3000/api/weeks',
+  ms: 1
+}
+[2025-08-11T17:57:30.618Z] INFO API success {
+  rid: '87a25a23-9590-45df-bcea-8ff6f574d3ec',
+  url: 'http://localhost:3000/api/data-health?weeks=4',
+  ms: 27
+}
+[2025-08-11T17:58:01.952Z] INFO API success {
+  rid: '1681dbf7-d1be-47da-8c52-f658e0e18784',
+  url: 'http://localhost:3000/api/weeks',
+  ms: 28
+}
+[2025-08-11T18:02:55.995Z] INFO API success {
+  rid: '5f043d07-1bb5-4068-ab17-1af1e5707ab9',
+  url: 'http://localhost:3000/api/weeks',
+  ms: 17
+}
+[2025-08-11T18:04:44.882Z] INFO API success {
+  rid: '98d7e495-0bbf-4ec3-825b-4664f133e49f',
+  url: 'http://localhost:3000/api/weeks',
+  ms: 36
+}
+[2025-08-11T18:14:34.344Z] INFO API success {
+  rid: '8a5f30f1-0843-4127-8d5f-9ddd1c31289e',
+  url: 'http://localhost:3000/api/weeks',
+  ms: 5
+}
+[2025-08-11T18:15:22.827Z] INFO API success {
+  rid: 'ad1d1a0e-e38a-4fa4-9d49-508737e8a778',
+  url: 'http://localhost:3000/api/data-health?weeks=4',
+  ms: 87
+}
+[2025-08-11T18:19:07.346Z] INFO API success {
+  rid: '24a0f841-9230-4a8b-8dc1-79f5042453d9',
+  url: 'http://localhost:3000/api/data-health?weeks=4',
+  ms: 52
+}
+[2025-08-11T19:56:35.475Z] INFO API success {
+  rid: 'f5972197-1ba2-4597-9a79-c5bc6f02216d',
+  url: 'http://localhost:3000/api/health',
+  ms: 36
+}
+[2025-08-11T19:56:35.530Z] INFO API success {
+  rid: '37221409-5baa-4d05-afe8-0f28e873019c',
+  url: 'http://localhost:3000/api/data-health?weeks=4',
+  ms: 43
+}
+[2025-08-11T19:56:35.666Z] INFO API success {
+  rid: '4cb55d8c-a0eb-4002-b004-de5a2e1a89ac',
+  url: 'http://localhost:3000/api/data-health?weeks=12&includeIssues=1',
+  ms: 127
+}
+[2025-08-11T19:56:35.703Z] INFO API success {
+  rid: '55649214-5e4d-4c63-834f-1f06a45d82fa',
+  url: 'http://localhost:3000/api/weeks',
+  ms: 7
+}
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127) {
+  digest: '3905302095'
+}
+TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+[2025-08-11T19:58:16.513Z] INFO API success {
+  rid: 'a64c5e7c-3a89-4404-8d18-153df24a0ac7',
+  url: 'http://localhost:3000/api/config',
+  ms: 0
+}
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127) {
+  digest: '3905302095'
+}
+TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127) {
+  digest: '3905302095'
+}
+TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+[2025-08-11T19:58:16.545Z] INFO API success {
+  rid: '8cb47a59-6a0a-4abf-8f24-bb6e56884b14',
+  url: 'http://localhost:3000/api/config',
+  ms: 0
+}
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127) {
+  digest: '3905302095'
+}
+TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127) {
+  digest: '3905302095'
+}
+TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+[2025-08-11T19:58:16.563Z] INFO API success {
+  rid: 'ec8dba3e-7488-49ac-ba11-4a2a513b9ab6',
+  url: 'http://localhost:3000/api/config',
+  ms: 1
+}
+[2025-08-11T19:58:16.568Z] INFO API success {
+  rid: '38722404-e7ff-467c-9241-450ea4d28a27',
+  url: 'http://localhost:3000/api/config',
+  ms: 0
+}
+[2025-08-11T19:58:16.571Z] INFO API success {
+  rid: '544ec144-1aa4-4a62-a51c-53b51d39e35a',
+  url: 'http://localhost:3000/api/config',
+  ms: 0
+}
+[2025-08-11T19:58:16.674Z] INFO API success {
+  rid: '0dd327b3-c91d-4278-be9d-34a4557b9432',
+  url: 'http://localhost:3000/api/weekly-summary?week=latest',
+  ms: 146
+}
+[2025-08-11T19:58:16.739Z] INFO API success {
+  rid: '5dd064dd-8aa8-4df8-b93e-1f0d465496c0',
+  url: 'http://localhost:3000/api/leaderboards/top-products?by=units&limit=5',
+  ms: 49
+}
+[2025-08-11T19:58:16.778Z] INFO API success {
+  rid: '9895d7e3-67bb-4e7e-bf95-dbffb69bda01',
+  url: 'http://localhost:3000/api/leaderboards/top-products?by=revenue&limit=5',
+  ms: 90
+}
+[2025-08-11T19:58:16.782Z] INFO API success {
+  rid: '6dafe8d1-2da6-4551-b82c-2a8405cab783',
+  url: 'http://localhost:3000/api/leaderboards/top-stores?limit=5',
+  ms: 92
+}
+[2025-08-11T19:58:16.820Z] INFO API success {
+  rid: '02b3e853-fca8-496d-bda6-034be5cfb2ec',
+  url: 'http://localhost:3000/api/data-health?weeks=12',
+  ms: 134
+}
+[2025-08-11T19:58:16.925Z] INFO API success {
+  rid: '7a6ada44-e32a-4f05-9cef-af673e7429d7',
+  url: 'http://localhost:3000/api/kpi/trend?weeks=12&week=latest',
+  ms: 243
+}
+[2025-08-11T19:58:16.933Z] INFO API success {
+  rid: 'ade30c27-8d36-4f62-b658-af20ba482007',
+  url: 'http://localhost:3000/api/stores-at-risk?lookback=8&limit=10',
+  ms: 249
+}
+[2025-08-11T19:58:17.066Z] INFO API success {
+  rid: '728c9d8f-834e-42d6-b64b-748a0d279606',
+  url: 'http://localhost:3000/api/weekly-summary?view=facts&week=2025-W27',
+  ms: 385
+}
+[2025-08-11T19:58:17.193Z] INFO API success {
+  rid: '3472978d-0178-430b-ac27-47e40d03165b',
+  url: 'http://localhost:3000/api/promotions?years=2024%2C2025&baselineWeeks=4',
+  ms: 675
+}
+[2025-08-11T19:58:17.378Z] INFO API success {
+  rid: 'd0fc33c0-4498-40f0-9acc-7811fdabd2f5',
+  url: 'http://localhost:3000/api/health',
+  ms: 1
+}
+[2025-08-11T19:58:18.187Z] INFO API success {
+  rid: '5a994e43-c660-4e33-b3db-adffb365055c',
+  url: 'http://localhost:3000/api/data-health?weeks=12&includeIssues=1',
+  ms: 77
+}
+[2025-08-11T22:05:15.968Z] INFO API success {
+  rid: 'd9c7562f-e690-4198-9981-6c70cdaaaf2a',
+  url: 'http://localhost:3000/api/health',
+  ms: 79
+}
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127) {
+  digest: '3905302095'
+}
+TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+[2025-08-11T22:09:45.990Z] INFO API success {
+  rid: 'ea115197-f6c0-4bcd-a7e0-5a88e818e3df',
+  url: 'http://localhost:3000/api/config',
+  ms: 1
+}
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127) {
+  digest: '3905302095'
+}
+TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+[2025-08-11T22:09:46.026Z] INFO API success {
+  rid: '99c8278c-c203-44b5-9936-18c9c8a2d94f',
+  url: 'http://localhost:3000/api/config',
+  ms: 1
+}
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127) {
+  digest: '3905302095'
+}
+TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127) {
+  digest: '3905302095'
+}
+TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127) {
+  digest: '3905302095'
+}
+TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+ ⨯ TypeError: a[d] is not a function
+    at Object.c [as require] (.next/server/webpack-runtime.js:1:127)
+[2025-08-11T22:09:46.055Z] INFO API success {
+  rid: 'bb83cf3a-4cd1-4024-9138-cee04385aa2e',
+  url: 'http://localhost:3000/api/config',
+  ms: 0
+}
+[2025-08-11T22:09:46.057Z] INFO API success {
+  rid: '61a5bac4-9e3c-4879-ba20-3c4221f5327c',
+  url: 'http://localhost:3000/api/config',
+  ms: 0
+}
+[2025-08-11T22:09:46.059Z] INFO API success {
+  rid: '02828073-7db7-401c-acc7-11412bc7fb48',
+  url: 'http://localhost:3000/api/config',
+  ms: 0
+}
+[2025-08-11T22:09:47.011Z] INFO API success {
+  rid: '0d55ae04-5268-4d82-addb-311c071dd4ff',
+  url: 'http://localhost:3000/api/weekly-summary?week=latest',
+  ms: 992
+}
+[2025-08-11T22:09:47.965Z] INFO API success {
+  rid: '61ab941d-87e9-49de-9240-898b53c103e2',
+  url: 'http://localhost:3000/api/leaderboards/top-stores?limit=5',
+  ms: 941
+}
+[2025-08-11T22:09:48.094Z] INFO API success {
+  rid: 'aa591a33-ed16-4a98-9942-4be07a252e2e',
+  url: 'http://localhost:3000/api/leaderboards/top-products?by=revenue&limit=5',
+  ms: 1071
+}
+[2025-08-11T22:09:48.209Z] INFO API success {
+  rid: '7e7f2ad5-4ed2-48ed-bf25-3ae7e73dd5d4',
+  url: 'http://localhost:3000/api/leaderboards/top-products?by=units&limit=5',
+  ms: 1189
+}
+[2025-08-11T22:09:48.529Z] INFO API success {
+  rid: 'fdffc1a9-d726-4eac-b7e1-5845e5a52b27',
+  url: 'http://localhost:3000/api/data-health?weeks=12',
+  ms: 1507
+}
+[2025-08-11T22:09:48.716Z] INFO API success {
+  rid: '7bae69b8-3c36-4932-a3fe-8be55eb42dde',
+  url: 'http://localhost:3000/api/weekly-summary?view=facts&week=2025-W27',
+  ms: 1701
+}
+[2025-08-11T22:09:48.844Z] INFO API success {
+  rid: 'f46e584a-d5c9-4098-8f2d-0598d7262192',
+  url: 'http://localhost:3000/api/stores-at-risk?lookback=8&limit=10',
+  ms: 1826
+}
+[2025-08-11T22:09:48.852Z] INFO API success {
+  rid: '73d5eef4-ac27-425f-93a3-ab930bbcb40e',
+  url: 'http://localhost:3000/api/kpi/trend?weeks=12&week=latest',
+  ms: 1836
+}
+[2025-08-11T22:09:49.274Z] INFO API success {
+  rid: '9e7bc38d-5d3b-4e5f-883c-11101ffc590e',
+  url: 'http://localhost:3000/api/promotions?years=2024%2C2025&baselineWeeks=4',
+  ms: 3277
+}

@@ -2,7 +2,7 @@
 // - Sourced from environment variables where applicable
 // - Safe defaults for local/demo usage
 
-export const DEFAULT_TENANT: string = process.env.DEFAULT_TENANT || "Demo Tenant";
+export const DEFAULT_TENANT: string = process.env.DEFAULT_TENANT || "PatternIQ Analytics";
 
 // Toggle demo mode via env; defaults to true for local development/demo
 export const DEMO_MODE: boolean = (process.env.DEMO_MODE ?? "true").toLowerCase() === "true";

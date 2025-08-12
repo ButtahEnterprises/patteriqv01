@@ -113,8 +113,14 @@ describe('API smoke tests', () => {
     expect(body && typeof body === 'object').toBe(true);
     expect(body.ok).toBe(true);
     expect(body.db && typeof body.db === 'object').toBe(true);
-    expect(body.db.up).toBe(true);
-    expect(typeof body.db.latencyMs).toBe('number');
+    if (body.db.skipped) {
+      // When USE_DB is disabled or in demo, DB check is skipped
+      expect(body.db.up).toBe(false);
+      expect(body.db.latencyMs).toBe(null);
+    } else {
+      expect(body.db.up).toBe(true);
+      expect(typeof body.db.latencyMs).toBe('number');
+    }
   });
 
   test('GET /api/weekly-summary → returns week string and kpis array', async () => {

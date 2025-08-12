@@ -1,0 +1,45 @@
+{
+  "week": "2025-W34",
+  "items": [
+    {
+      "storeId": 2,
+      "storeCode": "0001",
+      "storeName": "Store #0001",
+      "skuId": 2,
+      "upc": "ALL",
+      "skuName": "All SKUs",
+      "units": 100,
+      "revenue": 1000
+    },
+    {
+      "storeId": 3,
+      "storeCode": "0002",
+      "storeName": "Store #0002",
+      "skuId": 2,
+      "upc": "ALL",
+      "skuName": "All SKUs",
+      "units": 50,
+      "revenue": 500
+    },
+    {
+      "storeId": 4,
+      "storeCode": "0003",
+      "storeName": "Store #0003",
+      "skuId": 3,
+      "upc": "111111",
+      "skuName": "SKU 111",
+      "units": 1200000,
+      "revenue": 1200000
+    },
+    {
+      "storeId": 4,
+      "storeCode": "0003",
+      "storeName": "Store #0003",
+      "skuId": 4,
+      "upc": "222222",
+      "skuName": "SKU 222",
+      "units": 800000,
+      "revenue": 800000
+    }
+  ]
+}

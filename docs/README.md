@@ -2,6 +2,7 @@
 
 - E2E/CI Troubleshooting and Artifacts: see `./dev-notes.md`
 - Promotions API and UI: see `./promotions.md`
+- Resilience testing verification and artifacts: see `./testing/verification.md`
 
 Quick links:
 - Local E2E against external server (typically 3007):

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '../../../../lib/prisma';
 import { withApi } from '../../../../lib/api';
-import { DEMO_MODE as ENV_DEMO_MODE, USE_DB as ENV_USE_DB } from '../../../lib/config';
+import { getDemoModeEnv, getUseDbEnv } from '../../../lib/config';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,8 +30,8 @@ function parseBool(v: unknown): boolean | undefined {
 export const GET = withApi(async (req: Request) => {
   const cookies = parseCookies(req.headers.get('cookie'));
   const cookieDemo = parseBool(cookies[DEMO_COOKIE]);
-  const demoMode = cookieDemo ?? ENV_DEMO_MODE;
-  const useDb = ENV_USE_DB && !demoMode;
+  const demoMode = cookieDemo ?? getDemoModeEnv();
+  const useDb = getUseDbEnv() && !demoMode;
 
   const flags = {
     USE_DB: process.env.USE_DB,

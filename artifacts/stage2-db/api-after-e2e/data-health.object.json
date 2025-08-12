@@ -1,0 +1,1 @@
+{"data":[{"isoWeek":"2025-W32","totalStores":1,"pseudoStores":0,"pctFullAllocated":100},{"isoWeek":"2025-W33","totalStores":1,"pseudoStores":1,"pctFullAllocated":0}],"issues":["Low allocation in week 2025-W33: 0.0% (< 90%)","Pseudo-UPC allocations present in week 2025-W33 — missing Sales_Inv_Perf data may be causing under-allocation"]}

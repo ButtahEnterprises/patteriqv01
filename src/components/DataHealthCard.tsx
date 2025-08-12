@@ -51,9 +51,11 @@ class PanelErrorBoundary extends React.Component<
 export default function DataHealthCard({
   data,
   demoMode,
+  issues,
 }: {
   data: DataHealthPoint[] | null | undefined;
   demoMode?: boolean;
+  issues?: string[];
 }) {
   const isLoading = data == null;
   const latest = (data && data.length > 0) ? data[data.length - 1] : undefined;
@@ -85,14 +87,12 @@ export default function DataHealthCard({
   };
 
   return (
-    <Card
-      className="group transition-colors duration-200 hover:border-white/10"
-      role="figure"
-      aria-label="Data Health chart"
-      aria-busy={isLoading}
-    >
-      <CardHeader className="flex items-center justify-between mb-1">
-        <div className="text-sm font-medium text-white/80">% Allocation – last 12 weeks</div>
+    <div className="rounded-2xl bg-gradient-to-b from-[#1e3a5f] to-[#0f1419] border border-[#4a9eff]/20 p-6">
+      <div className="flex items-center justify-between mb-4">
+        <div>
+          <h3 className="text-lg font-semibold text-white">Data Health</h3>
+          <p className="text-sm text-white/70">% Allocation — last {data?.length} weeks</p>
+        </div>
         <div className="flex items-center gap-2">
           {latest ? (
             <div className="text-xl sm:text-2xl font-semibold text-white/90 font-mono" aria-label="Latest allocation">
@@ -109,8 +109,23 @@ export default function DataHealthCard({
             </span>
           )}
         </div>
-      </CardHeader>
-      <CardContent>
+      </div>
+      <div>
+
+      {/* Non-blocking issues/warnings */}
+      {Array.isArray(issues) && issues.length > 0 ? (
+        <div className="mb-3 rounded-lg bg-amber-500/10 border border-amber-400/30 text-amber-200 px-3 py-2 text-[12px]">
+          <div className="font-medium mb-1">Data issues detected ({issues.length})</div>
+          <ul className="list-disc list-inside space-y-0.5">
+            {issues.slice(0, 3).map((msg, i) => (
+              <li key={i}>{msg}</li>
+            ))}
+          </ul>
+          {issues.length > 3 ? (
+            <div className="mt-1 text-amber-200/80">…and {issues.length - 3} more</div>
+          ) : null}
+        </div>
+      ) : null}
 
       <PanelErrorBoundary>
         {isLoading ? (
@@ -180,7 +195,7 @@ export default function DataHealthCard({
           </tbody>
         </table>
       </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

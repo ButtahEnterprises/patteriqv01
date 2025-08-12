@@ -1,0 +1,15 @@
+{
+  "week": "2025-W32",
+  "items": [
+    {
+      "storeId": 1,
+      "storeCode": "ULTA-001",
+      "storeName": "Ulta Beauty #001",
+      "skuId": 1,
+      "upc": "BTPH115US",
+      "skuName": "Buttah Facial Moisturizer",
+      "units": 12,
+      "revenue": 382
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+    "ok": true,
+    "service": "patterniq-v01",
+    "time": "2025-08-11T15:43:21.033Z",
+    "mode": {
+        "demoMode": false,
+        "useDb": true
+    },
+    "flags": {
+        "USE_DB": "true"
+    },
+    "db": {
+        "up": true,
+        "latencyMs": 92,
+        "error": null,
+        "skipped": false
+    }
+}

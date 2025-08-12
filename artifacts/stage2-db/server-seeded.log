@@ -1,0 +1,35 @@
+
+> patterniq-v01@0.1.0 start
+> next start
+
+   ▲ Next.js 15.4.6
+   - Local:        http://localhost:3006
+   - Network:      http://192.168.1.208:3006
+
+ ✓ Starting...
+ ✓ Ready in 567ms
+[2025-08-11T21:36:09.319Z] INFO API success {
+  rid: '8e371184-bb0b-48c2-8a1e-768bbbcb76fe',
+  url: 'http://localhost:3006/api/health',
+  ms: 85
+}
+[2025-08-11T21:36:09.356Z] INFO API success {
+  rid: 'a33d366d-46f7-4837-947c-f500810caa36',
+  url: 'http://localhost:3006/api/weeks',
+  ms: 5
+}
+[2025-08-11T21:36:09.377Z] INFO API success {
+  rid: 'ad522915-7290-4929-9233-a5f08dca021d',
+  url: 'http://localhost:3006/api/weekly-summary?view=facts&week=latest',
+  ms: 9
+}
+[2025-08-11T21:36:09.420Z] INFO API success {
+  rid: 'b48c4012-81c0-47c4-aaba-3acd2c23506d',
+  url: 'http://localhost:3006/api/weekly-summary?week=latest',
+  ms: 30
+}
+[2025-08-11T21:36:09.441Z] INFO API success {
+  rid: 'e1fd5391-c831-421c-8a3f-a9980cb50df3',
+  url: 'http://localhost:3006/api/data-health?weeks=4',
+  ms: 7
+}

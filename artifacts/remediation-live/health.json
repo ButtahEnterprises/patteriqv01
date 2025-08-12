@@ -1,0 +1,1 @@
+{"ok":true,"service":"patterniq-v01","time":"2025-08-11T17:44:58.431Z","mode":{"demoMode":false,"useDb":true},"flags":{"USE_DB":"true"},"db":{"up":true,"latencyMs":69,"error":null,"skipped":false}}

@@ -1,0 +1,1024 @@
+[
+  {
+    "id": "P24-MAILER-OFFER",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2024-02-04",
+    "endDate": "2024-02-10",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 157947,
+      "promoAvg": 210681,
+      "effectPct": 33.4
+    },
+    "deltaRevenue": 109254,
+    "weeks": [
+      {
+        "isoWeek": "2024-W05",
+        "revenue": 210681
+      },
+      {
+        "isoWeek": "2024-W06",
+        "revenue": 214467
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 11.4
+    }
+  },
+  {
+    "id": "P24-MAILER-OFFER-2",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2024-02-11",
+    "endDate": "2024-02-17",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 147238,
+      "promoAvg": 184007,
+      "effectPct": 25
+    },
+    "deltaRevenue": 77067,
+    "weeks": [
+      {
+        "isoWeek": "2024-W06",
+        "revenue": 184007
+      },
+      {
+        "isoWeek": "2024-W07",
+        "revenue": 187536
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 8.4
+    }
+  },
+  {
+    "id": "P24-UNADVERTISED-OFF",
+    "name": "Unadvertised Offer",
+    "description": "Unadvertised Offer",
+    "startDate": "2024-02-18",
+    "endDate": "2024-02-24",
+    "type": "Unadvertised Offer",
+    "tags": [],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 128996,
+      "promoAvg": 142721,
+      "effectPct": 10.6
+    },
+    "deltaRevenue": 30542,
+    "weeks": [
+      {
+        "isoWeek": "2024-W07",
+        "revenue": 142721
+      },
+      {
+        "isoWeek": "2024-W08",
+        "revenue": 145813
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 3.1
+    }
+  },
+  {
+    "id": "P24-UNADVERTISED-OFF-2",
+    "name": "Unadvertised Offer",
+    "description": "Unadvertised Offer",
+    "startDate": "2024-02-25",
+    "endDate": "2024-03-02",
+    "type": "Unadvertised Offer",
+    "tags": [],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 114971,
+      "promoAvg": 114534,
+      "effectPct": -0.4
+    },
+    "deltaRevenue": 1882,
+    "weeks": [
+      {
+        "isoWeek": "2024-W08",
+        "revenue": 114534
+      },
+      {
+        "isoWeek": "2024-W09",
+        "revenue": 117290
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -0.9
+    }
+  },
+  {
+    "id": "P24-UNADVERTISED-OFF-3",
+    "name": "Unadvertised Offer",
+    "description": "Unadvertised Offer",
+    "startDate": "2024-03-03",
+    "endDate": "2024-03-09",
+    "type": "Unadvertised Offer",
+    "tags": [],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 114971,
+      "promoAvg": 114534,
+      "effectPct": -0.4
+    },
+    "deltaRevenue": 1882,
+    "weeks": [
+      {
+        "isoWeek": "2024-W09",
+        "revenue": 114534
+      },
+      {
+        "isoWeek": "2024-W10",
+        "revenue": 117290
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -0.9
+    }
+  },
+  {
+    "id": "P24-DIGITAL",
+    "name": "Digital",
+    "description": "Digital",
+    "startDate": "2024-04-07",
+    "endDate": "2024-04-13",
+    "type": "Digital",
+    "tags": [
+      "digital"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 113494,
+      "promoAvg": 111746,
+      "effectPct": -1.5
+    },
+    "deltaRevenue": -775,
+    "weeks": [
+      {
+        "isoWeek": "2024-W14",
+        "revenue": 111746
+      },
+      {
+        "isoWeek": "2024-W15",
+        "revenue": 114467
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -1.3
+    }
+  },
+  {
+    "id": "P24-DIGITAL-2",
+    "name": "Digital",
+    "description": "Digital",
+    "startDate": "2024-04-14",
+    "endDate": "2024-04-20",
+    "type": "Digital",
+    "tags": [
+      "digital"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 127834,
+      "promoAvg": 140268,
+      "effectPct": 9.7
+    },
+    "deltaRevenue": 27932,
+    "weeks": [
+      {
+        "isoWeek": "2024-W15",
+        "revenue": 140268
+      },
+      {
+        "isoWeek": "2024-W16",
+        "revenue": 143332
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 2.8
+    }
+  },
+  {
+    "id": "P24-UNADVERTISED-OFF-4",
+    "name": "Unadvertised Offer",
+    "description": "Unadvertised Offer",
+    "startDate": "2024-06-23",
+    "endDate": "2024-06-29",
+    "type": "Unadvertised Offer",
+    "tags": [],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 114971,
+      "promoAvg": 114534,
+      "effectPct": -0.4
+    },
+    "deltaRevenue": 1882,
+    "weeks": [
+      {
+        "isoWeek": "2024-W25",
+        "revenue": 114534
+      },
+      {
+        "isoWeek": "2024-W26",
+        "revenue": 117290
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -0.9
+    }
+  },
+  {
+    "id": "P24-UNADVERTISED-OFF-5",
+    "name": "Unadvertised Offer",
+    "description": "Unadvertised Offer",
+    "startDate": "2024-06-30",
+    "endDate": "2024-07-06",
+    "type": "Unadvertised Offer",
+    "tags": [],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 114971,
+      "promoAvg": 114534,
+      "effectPct": -0.4
+    },
+    "deltaRevenue": 1882,
+    "weeks": [
+      {
+        "isoWeek": "2024-W26",
+        "revenue": 114534
+      },
+      {
+        "isoWeek": "2024-W27",
+        "revenue": 117290
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -0.9
+    }
+  },
+  {
+    "id": "P24-UNADVERTISED-OFF-6",
+    "name": "Unadvertised Offer",
+    "description": "Unadvertised Offer",
+    "startDate": "2024-07-07",
+    "endDate": "2024-07-13",
+    "type": "Unadvertised Offer",
+    "tags": [],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 114971,
+      "promoAvg": 114534,
+      "effectPct": -0.4
+    },
+    "deltaRevenue": 1882,
+    "weeks": [
+      {
+        "isoWeek": "2024-W27",
+        "revenue": 114534
+      },
+      {
+        "isoWeek": "2024-W28",
+        "revenue": 117290
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -0.9
+    }
+  },
+  {
+    "id": "P24-DIGITAL-3",
+    "name": "Digital",
+    "description": "Digital",
+    "startDate": "2024-07-21",
+    "endDate": "2024-07-27",
+    "type": "Digital",
+    "tags": [
+      "digital"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 127834,
+      "promoAvg": 140268,
+      "effectPct": 9.7
+    },
+    "deltaRevenue": 27932,
+    "weeks": [
+      {
+        "isoWeek": "2024-W29",
+        "revenue": 140268
+      },
+      {
+        "isoWeek": "2024-W30",
+        "revenue": 143332
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 2.8
+    }
+  },
+  {
+    "id": "P24-MAILER-OFFER-3",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2024-09-01",
+    "endDate": "2024-09-07",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 147238,
+      "promoAvg": 184007,
+      "effectPct": 25
+    },
+    "deltaRevenue": 77067,
+    "weeks": [
+      {
+        "isoWeek": "2024-W35",
+        "revenue": 184007
+      },
+      {
+        "isoWeek": "2024-W36",
+        "revenue": 187536
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 8.4
+    }
+  },
+  {
+    "id": "P24-MAILER-OFFER-4",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2024-09-08",
+    "endDate": "2024-09-14",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 147238,
+      "promoAvg": 184007,
+      "effectPct": 25
+    },
+    "deltaRevenue": 77067,
+    "weeks": [
+      {
+        "isoWeek": "2024-W36",
+        "revenue": 184007
+      },
+      {
+        "isoWeek": "2024-W37",
+        "revenue": 187536
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 8.4
+    }
+  },
+  {
+    "id": "P24-MAILER-OFFER-5",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2024-09-15",
+    "endDate": "2024-09-21",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 147238,
+      "promoAvg": 184007,
+      "effectPct": 25
+    },
+    "deltaRevenue": 77067,
+    "weeks": [
+      {
+        "isoWeek": "2024-W37",
+        "revenue": 184007
+      },
+      {
+        "isoWeek": "2024-W38",
+        "revenue": 187536
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 8.4
+    }
+  },
+  {
+    "id": "P24-DIGITAL-4",
+    "name": "Digital",
+    "description": "Digital",
+    "startDate": "2024-09-22",
+    "endDate": "2024-09-28",
+    "type": "Digital",
+    "tags": [
+      "digital"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 127834,
+      "promoAvg": 140268,
+      "effectPct": 9.7
+    },
+    "deltaRevenue": 27932,
+    "weeks": [
+      {
+        "isoWeek": "2024-W38",
+        "revenue": 140268
+      },
+      {
+        "isoWeek": "2024-W39",
+        "revenue": 143332
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 2.8
+    }
+  },
+  {
+    "id": "P24-DIGITAL-5",
+    "name": "Digital",
+    "description": "Digital",
+    "startDate": "2024-09-29",
+    "endDate": "2024-10-05",
+    "type": "Digital",
+    "tags": [
+      "digital"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 127834,
+      "promoAvg": 140268,
+      "effectPct": 9.7
+    },
+    "deltaRevenue": 27932,
+    "weeks": [
+      {
+        "isoWeek": "2024-W39",
+        "revenue": 140268
+      },
+      {
+        "isoWeek": "2024-W40",
+        "revenue": 143332
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 2.8
+    }
+  },
+  {
+    "id": "P24-MAILER-OFFER-6",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2024-11-03",
+    "endDate": "2024-11-09",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 147238,
+      "promoAvg": 184007,
+      "effectPct": 25
+    },
+    "deltaRevenue": 77067,
+    "weeks": [
+      {
+        "isoWeek": "2024-W44",
+        "revenue": 184007
+      },
+      {
+        "isoWeek": "2024-W45",
+        "revenue": 187536
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 8.4
+    }
+  },
+  {
+    "id": "P24-MAILER-OFFER-7",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2024-11-10",
+    "endDate": "2024-11-16",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 147238,
+      "promoAvg": 184007,
+      "effectPct": 25
+    },
+    "deltaRevenue": 77067,
+    "weeks": [
+      {
+        "isoWeek": "2024-W45",
+        "revenue": 184007
+      },
+      {
+        "isoWeek": "2024-W46",
+        "revenue": 187536
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 8.4
+    }
+  },
+  {
+    "id": "P24-MAILER-OFFER-8",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2024-11-17",
+    "endDate": "2024-11-23",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 147238,
+      "promoAvg": 184007,
+      "effectPct": 25
+    },
+    "deltaRevenue": 77067,
+    "weeks": [
+      {
+        "isoWeek": "2024-W46",
+        "revenue": 184007
+      },
+      {
+        "isoWeek": "2024-W47",
+        "revenue": 187536
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 8.4
+    }
+  },
+  {
+    "id": "P25-MAILER-OFFER",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2025-01-05",
+    "endDate": "2025-01-11",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 112517,
+      "promoAvg": 109920,
+      "effectPct": -2.3
+    },
+    "deltaRevenue": -2497,
+    "weeks": [
+      {
+        "isoWeek": "2025-W01",
+        "revenue": 109920
+      },
+      {
+        "isoWeek": "2025-W02",
+        "revenue": 112617
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -1.6
+    }
+  },
+  {
+    "id": "P25-MAILER-OFFER-2",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2025-01-12",
+    "endDate": "2025-01-18",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 99294,
+      "promoAvg": 86686,
+      "effectPct": -12.7
+    },
+    "deltaRevenue": -22836,
+    "weeks": [
+      {
+        "isoWeek": "2025-W02",
+        "revenue": 86686
+      },
+      {
+        "isoWeek": "2025-W03",
+        "revenue": 89066
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -5.3
+    }
+  },
+  {
+    "id": "P25-MAILER-OFFER-3",
+    "name": "Mailer Offer",
+    "description": "Mailer Offer",
+    "startDate": "2025-01-19",
+    "endDate": "2025-01-25",
+    "type": "Mailer Offer",
+    "tags": [
+      "magazine"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 99294,
+      "promoAvg": 86686,
+      "effectPct": -12.7
+    },
+    "deltaRevenue": -22836,
+    "weeks": [
+      {
+        "isoWeek": "2025-W03",
+        "revenue": 86686
+      },
+      {
+        "isoWeek": "2025-W04",
+        "revenue": 89066
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -5.3
+    }
+  },
+  {
+    "id": "P25-BACK-TO-SCHOOL-B",
+    "name": "Back to School BOGO40%",
+    "description": "Back to School BOGO40%",
+    "startDate": "2025-06-29",
+    "endDate": "2025-07-19",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 96161,
+      "promoAvg": 81584,
+      "effectPct": -15.2
+    },
+    "deltaRevenue": -47161,
+    "weeks": [
+      {
+        "isoWeek": "2025-W26",
+        "revenue": 81584
+      },
+      {
+        "isoWeek": "2025-W27",
+        "revenue": 83889
+      },
+      {
+        "isoWeek": "2025-W28",
+        "revenue": 85630
+      },
+      {
+        "isoWeek": "2025-W29",
+        "revenue": 86380
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -6.2
+    }
+  },
+  {
+    "id": "P25-SET-FOR-SCHOOL-S",
+    "name": "SET FOR SCHOOL SALE (ONLINE ONLY): 25% off entire brand",
+    "description": "SET FOR SCHOOL SALE (ONLINE ONLY): 25% off entire brand",
+    "startDate": "2025-07-20",
+    "endDate": "2025-07-26",
+    "type": "Digital Offer",
+    "tags": [
+      "ulta",
+      "digital"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 114795,
+      "promoAvg": 114200,
+      "effectPct": -0.5
+    },
+    "deltaRevenue": 1562,
+    "weeks": [
+      {
+        "isoWeek": "2025-W29",
+        "revenue": 114200
+      },
+      {
+        "isoWeek": "2025-W30",
+        "revenue": 116952
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -0.9
+    }
+  },
+  {
+    "id": "P25-APP-EVENT-40-OFF",
+    "name": "App Event 40% off select skus",
+    "description": "App Event 40% off select skus",
+    "startDate": "2025-07-20",
+    "endDate": "2025-07-24",
+    "type": "App Promotion",
+    "tags": [
+      "in-store",
+      "ulta",
+      "app-event"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 123889,
+      "promoAvg": 132099,
+      "effectPct": 6.6
+    },
+    "deltaRevenue": 19390,
+    "weeks": [
+      {
+        "isoWeek": "2025-W29",
+        "revenue": 132099
+      },
+      {
+        "isoWeek": "2025-W30",
+        "revenue": 135069
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 1.7
+    }
+  },
+  {
+    "id": "P25-ULTA-10X-PLATINU",
+    "name": "Ulta 10x Platinum Event",
+    "description": "Ulta 10x Platinum Event",
+    "startDate": "2025-08-10",
+    "endDate": "2025-08-16",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 150409,
+      "promoAvg": 191718,
+      "effectPct": 27.5
+    },
+    "deltaRevenue": 86223,
+    "weeks": [
+      {
+        "isoWeek": "2025-W32",
+        "revenue": 191718
+      },
+      {
+        "isoWeek": "2025-W33",
+        "revenue": 195323
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 9.3
+    }
+  },
+  {
+    "id": "P25-TBC",
+    "name": "TBC",
+    "description": "TBC",
+    "startDate": "2025-08-24",
+    "endDate": "2025-09-20",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "tentative",
+    "metrics": {
+      "baselineAvg": 101048,
+      "promoAvg": 89610,
+      "effectPct": -11.3
+    },
+    "deltaRevenue": -40883,
+    "weeks": [
+      {
+        "isoWeek": "2025-W34",
+        "revenue": 89610
+      },
+      {
+        "isoWeek": "2025-W35",
+        "revenue": 92032
+      },
+      {
+        "isoWeek": "2025-W36",
+        "revenue": 93861
+      },
+      {
+        "isoWeek": "2025-W37",
+        "revenue": 94650
+      },
+      {
+        "isoWeek": "2025-W38",
+        "revenue": 94204
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": -4.8
+    }
+  },
+  {
+    "id": "P25-FALL-HAUL-30-OFF",
+    "name": "Fall Haul 30% off Entire Brand",
+    "description": "Fall Haul 30% off Entire Brand",
+    "startDate": "2025-09-20",
+    "endDate": "2025-10-04",
+    "type": "Seasonal Sale",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "confirmed",
+    "metrics": {
+      "baselineAvg": 126513,
+      "promoAvg": 137506,
+      "effectPct": 8.7
+    },
+    "deltaRevenue": 41335,
+    "weeks": [
+      {
+        "isoWeek": "2025-W38",
+        "revenue": 137506
+      },
+      {
+        "isoWeek": "2025-W39",
+        "revenue": 140539
+      },
+      {
+        "isoWeek": "2025-W40",
+        "revenue": 142829
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 2.4
+    }
+  },
+  {
+    "id": "P25-EARLY-BLACK-FRID",
+    "name": "Early Black Friday TBD",
+    "description": "Early Black Friday TBD",
+    "startDate": "2025-10-26",
+    "endDate": "2025-11-15",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "tentative",
+    "metrics": {
+      "baselineAvg": 159280,
+      "promoAvg": 214127,
+      "effectPct": 34.4
+    },
+    "deltaRevenue": 237851,
+    "weeks": [
+      {
+        "isoWeek": "2025-W43",
+        "revenue": 214127
+      },
+      {
+        "isoWeek": "2025-W44",
+        "revenue": 217945
+      },
+      {
+        "isoWeek": "2025-W45",
+        "revenue": 220828
+      },
+      {
+        "isoWeek": "2025-W46",
+        "revenue": 222071
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 11.8
+    }
+  },
+  {
+    "id": "P25-TBC-2",
+    "name": "TBC",
+    "description": "TBC",
+    "startDate": "2025-12-07",
+    "endDate": "2025-12-27",
+    "tags": [
+      "in-store",
+      "ulta"
+    ],
+    "skuUpcs": [],
+    "status": "tentative",
+    "metrics": {
+      "baselineAvg": 137441,
+      "promoAvg": 161184,
+      "effectPct": 17.3
+    },
+    "deltaRevenue": 110905,
+    "weeks": [
+      {
+        "isoWeek": "2025-W49",
+        "revenue": 161184
+      },
+      {
+        "isoWeek": "2025-W50",
+        "revenue": 164479
+      },
+      {
+        "isoWeek": "2025-W51",
+        "revenue": 166967
+      },
+      {
+        "isoWeek": "2025-W52",
+        "revenue": 168039
+      }
+    ],
+    "targetSkuCount": 0,
+    "halo": {
+      "nonTargetEffectPct": 5.6
+    }
+  }
+]

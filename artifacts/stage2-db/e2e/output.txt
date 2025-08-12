@@ -1,0 +1,29 @@
+
+Running 18 tests using 6 workers
+
+  ✓  1 [chromium] › tests/e2e/promotions.spec.ts:23:7 › Promotion Calendar › renders in Demo mode with badges and sparklines (2.4s)
+  ✓  2 [chromium] › tests/e2e/breadcrumbs.spec.ts:14:7 › Breadcrumbs › dashboard shows breadcrumb trail with selected week and window (2.7s)
+  ✓  4 [chromium] › tests/e2e/leaderboards.spec.ts:14:7 › Dashboard Leaderboards › Live mode leaderboards render with <=5 items and sorted (2.9s)
+  -  3 [chromium] › tests/e2e/drilldown.spec.ts:35:5 › drilldown works in Live mode (skip if no data)
+  ✓  6 [chromium] › tests/e2e/weekly-facts.spec.ts:143:7 › Weekly Sales — Facts › Demo mode shows badge and empty state (4.1s)
+  ✓  7 [chromium] › tests/e2e/promotions.spec.ts:50:7 › Promotion Calendar › renders in Live mode and shows cards (4.3s)
+  ✓  9 [chromium] › tests/e2e/leaderboards.spec.ts:35:7 › Dashboard Leaderboards › Demo mode leaderboards deterministic and visible (7.1s)
+  ✓  12 [chromium] › tests/e2e/promotions.spec.ts:74:7 › Promotion Calendar › shows accessible error state when API fails (Demo mode) (4.0s)
+  ✓  8 [chromium] › tests/e2e/breadcrumbs.spec.ts:24:7 › Breadcrumbs › store page shows breadcrumb trail with selected week and window (10.5s)
+  ✓  13 [chromium] › tests/e2e/leaderboards.spec.ts:58:7 › Dashboard Leaderboards › Responsive layout renders leaderboards in grid (4.1s)
+  ✓  14 [chromium] › tests/e2e/promotions.spec.ts:93:7 › Promotion Calendar › shows accessible error state when API fails (Live mode) (3.4s)
+  ✓  5 [chromium] › tests/e2e/promo-overlay.spec.ts:76:5 › Promo overlay (Demo) toggles trend markers (14.6s)
+  ✓  15 [chromium] › tests/e2e/leaderboards.spec.ts:68:7 › Dashboard Leaderboards › Dashboard panels ready state in Live mode (KPI Trend, Data Health, Stores-at-Risk) (780ms)
+  ✓  10 [chromium] › tests/e2e/drilldown.spec.ts:81:5 › drilldown works in Demo mode with synthetic data (12.2s)
+  ✓  17 [chromium] › tests/e2e/leaderboards.spec.ts:90:7 › Dashboard Leaderboards › Dashboard panels ready state in Demo mode (KPI Trend, Data Health, Stores-at-Risk) (772ms)
+  ✓  11 [chromium] › tests/e2e/weekly-facts.spec.ts:155:7 › Weekly Sales — Facts › Live mode renders facts after ingestion, sorts by revenue, and honors allocator (12.6s)
+  ✓  16 [chromium] › tests/e2e/promo-overlay.spec.ts:106:5 › Promo overlay (Live) highlights facts rows and shows trend markers (2.8s)
+  ✓  18 [chromium] › tests/e2e/weekly-facts.spec.ts:220:7 › Weekly Sales — Facts › Toggles Demo/Live in same session updates panel state (2.9s)
+
+  1 skipped
+  17 passed (28.3s)
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m

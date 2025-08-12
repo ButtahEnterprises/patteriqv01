@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { headers } from "next/headers";
-import ModeToggle from "../components/ModeToggle";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   description: "AI-Assisted Retail Intelligence Dashboard",
 };
 
+// Ensure this layout is rendered dynamically since it depends on request headers and cookies
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -30,8 +33,19 @@ export default async function RootLayout({
   const proto = h.get("x-forwarded-proto") ?? "http";
   const base = `${proto}://${host}`;
   const cookie = h.get("cookie") ?? "";
-  const cfgRes = await fetch(`${base}/api/config`, { cache: "no-store", headers: { cookie } });
-  const cfg = await cfgRes.json();
+  // Fetch config defensively to avoid build-time prerender failures
+  let cfg: { demoMode: boolean } = { demoMode: true };
+  try {
+    const cfgRes = await fetch(`${base}/api/config`, { cache: "no-store", headers: { cookie } });
+    if (cfgRes.ok) {
+      const ct = cfgRes.headers.get("content-type") ?? "";
+      if (ct.includes("application/json")) {
+        cfg = await cfgRes.json();
+      }
+    }
+  } catch {
+    // ignore and use default demo config during prerender
+  }
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
@@ -55,7 +69,7 @@ export default async function RootLayout({
                 </nav>
               </div>
               <div className="flex items-center gap-3">
-                <ModeToggle initialDemo={cfg.demoMode} />
+
                 {cfg.demoMode && (
                   <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 px-3 py-1 text-xs" role="status" aria-live="polite" title="Demo Mode">
                     <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>

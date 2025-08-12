@@ -1,0 +1,26 @@
+[
+    {
+        "isoWeek": "2025-W29",
+        "totalStores": 1337,
+        "pseudoStores": 1337,
+        "pctFullAllocated": 0
+    },
+    {
+        "isoWeek": "2025-W32",
+        "totalStores": 5,
+        "pseudoStores": 3,
+        "pctFullAllocated": 40
+    },
+    {
+        "isoWeek": "2025-W33",
+        "totalStores": 4,
+        "pseudoStores": 3,
+        "pctFullAllocated": 25
+    },
+    {
+        "isoWeek": "2025-W34",
+        "totalStores": 3,
+        "pseudoStores": 2,
+        "pctFullAllocated": 33.3
+    }
+]

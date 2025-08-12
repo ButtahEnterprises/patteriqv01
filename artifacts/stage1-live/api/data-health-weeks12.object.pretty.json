@@ -1,0 +1,74 @@
+[
+  {
+    "isoWeek": "2025-W16",
+    "totalStores": 1368,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  },
+  {
+    "isoWeek": "2025-W17",
+    "totalStores": 1395,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  },
+  {
+    "isoWeek": "2025-W18",
+    "totalStores": 1407,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  },
+  {
+    "isoWeek": "2025-W19",
+    "totalStores": 1055,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  },
+  {
+    "isoWeek": "2025-W20",
+    "totalStores": 1266,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  },
+  {
+    "isoWeek": "2025-W21",
+    "totalStores": 1336,
+    "pseudoStores": 1336,
+    "pctFullAllocated": 0
+  },
+  {
+    "isoWeek": "2025-W22",
+    "totalStores": 1373,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  },
+  {
+    "isoWeek": "2025-W23",
+    "totalStores": 1002,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  },
+  {
+    "isoWeek": "2025-W24",
+    "totalStores": 1239,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  },
+  {
+    "isoWeek": "2025-W25",
+    "totalStores": 1329,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  },
+  {
+    "isoWeek": "2025-W26",
+    "totalStores": 1369,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  },
+  {
+    "isoWeek": "2025-W27",
+    "totalStores": 1029,
+    "pseudoStores": 0,
+    "pctFullAllocated": 100
+  }
+]

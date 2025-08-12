@@ -32,20 +32,10 @@ function parseBool(v: unknown): boolean | undefined {
 }
 
 export const GET = withApi(async (req: Request) => {
-  // Resolve effective mode and DB usage
-  const cookies = parseCookies(req.headers.get("cookie"));
-  const cookieDemo = parseBool(cookies[DEMO_COOKIE]);
-  const demoMode = cookieDemo ?? getDemoModeEnv();
-  const useDb = getUseDbEnv() && !demoMode;
-
+  // Force real data only - no demo mode
   const url = new URL(req.url);
   const view = url.searchParams.get("view") || "summary";
   const weekParam = url.searchParams.get("week") || "latest";
-
-  if (!useDb) {
-    // In Demo or when DB disabled, always return demo summary regardless of view
-    return NextResponse.json(demoWeeklySummary);
-  }
 
   // Resolve target week
   async function resolveWeek(): Promise<{ id: number; iso: string } | null> {
@@ -56,6 +46,15 @@ export const GET = withApi(async (req: Request) => {
     if (/^\d{4}-W\d{2}$/.test(weekParam)) {
       const wk = await prisma.week.findFirst({ where: { iso: weekParam }, select: { id: true, iso: true } });
       if (wk) return wk;
+      // If specific week not found, try to find the closest available week
+      console.log(`[DEBUG] Week ${weekParam} not found, looking for closest available week`);
+      const allWeeks = await prisma.week.findMany({ orderBy: { startDate: "desc" }, select: { id: true, iso: true } });
+      if (allWeeks.length > 0) {
+        console.log(`[DEBUG] Available weeks:`, allWeeks.map(w => w.iso));
+        // Return the latest available week as fallback
+        return allWeeks[0];
+      }
+      return null;
     }
     // Date format YYYY-MM-DD → map to ISO week
     if (/^\d{4}-\d{2}-\d{2}$/.test(weekParam)) {
@@ -70,13 +69,17 @@ export const GET = withApi(async (req: Request) => {
         if (wk2) return wk2;
       }
     }
+    // Fall back to latest available week
     return prisma.week.findFirst({ orderBy: { startDate: "desc" }, select: { id: true, iso: true } });
   }
 
   const week = await resolveWeek();
+  console.log(`[DEBUG] Weekly Summary - weekParam: ${weekParam}, resolved week: ${week?.iso}, weekId: ${week?.id}`);
+  
   if (!week) {
-    // No data yet, serve demo summary
-    return NextResponse.json(demoWeeklySummary);
+    // No data available, return error instead of demo data
+    console.log(`[DEBUG] No week found, returning error`);
+    return NextResponse.json({ error: "No data available for the requested week" }, { status: 404 });
   }
 
   if (view === "facts") {
@@ -100,15 +103,43 @@ export const GET = withApi(async (req: Request) => {
   // Default: KPI summary for the selected week
   const agg = await prisma.salesFact.aggregate({ where: { weekId: week.id }, _sum: { revenue: true, units: true } });
   const skus = await prisma.salesFact.findMany({ where: { weekId: week.id }, select: { skuId: true }, distinct: ["skuId"] });
-  const stores = await prisma.salesFact.findMany({ where: { weekId: week.id }, select: { storeId: true }, distinct: ["storeId"] });
+  const storeIds = await prisma.salesFact.findMany({ where: { weekId: week.id }, select: { storeId: true }, distinct: ["storeId"] });
+  
+  // Filter out Ulta.com stores from Active Stores count
+  const physicalStores: number[] = [];
+  for (const { storeId } of storeIds) {
+    const store = await prisma.store.findUnique({
+      where: { id: storeId },
+      select: { name: true, code: true }
+    });
+    if (store) {
+      const name = store.name?.toLowerCase() || '';
+      const code = store.code?.toLowerCase() || '';
+      // More specific filtering - only exclude obvious e-commerce channels
+      const isUltaCom = name.includes('ulta.com') || name === 'online' || name === 'web' ||
+                       code === 'com' || code === 'web' || code === 'online' || code === 'ecom';
+      if (!isUltaCom) {
+        physicalStores.push(storeId);
+      }
+    }
+  }
+  
   const revenueNum = agg._sum.revenue ? Number(agg._sum.revenue) : 0;
   const unitsNum = agg._sum.units ?? 0;
+  
+  console.log(`[DEBUG] Revenue aggregation for week ${week.iso} (ID: ${week.id}):`, {
+    rawRevenue: agg._sum.revenue,
+    revenueNum,
+    unitsNum,
+    skuCount: skus.length,
+    storeCount: physicalStores.length
+  });
   const fmtCurrency = (n: number) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
-  const summary = { week: week.iso, tenant: DEFAULT_TENANT || "Demo Tenant", kpis: [
+  const summary = { week: week.iso, tenant: DEFAULT_TENANT || "PatternIQ Analytics", kpis: [
     { label: "Total Sales — This Week", value: fmtCurrency(revenueNum) },
     { label: "Units Sold — This Week", value: unitsNum },
     { label: "Active SKUs — This Week", value: skus.length },
-    { label: "Active Stores — This Week", value: stores.length },
+    { label: "Active Stores — This Week", value: physicalStores.length },
   ] };
   return NextResponse.json(summary);
 });

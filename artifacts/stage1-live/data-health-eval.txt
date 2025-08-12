@@ -1,0 +1,4 @@
+latest_isoWeek=2025-W34
+latest_pct=33.3
+threshold=90.0
+status=FAIL

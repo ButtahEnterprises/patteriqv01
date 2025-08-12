@@ -1,0 +1,62 @@
+[
+  {
+    "isoWeek": "2025-W22",
+    "revenue": 182500,
+    "units": 12650
+  },
+  {
+    "isoWeek": "2025-W23",
+    "revenue": 190841,
+    "units": 12667
+  },
+  {
+    "isoWeek": "2025-W24",
+    "revenue": 198260,
+    "units": 12622
+  },
+  {
+    "isoWeek": "2025-W25",
+    "revenue": 203981,
+    "units": 12524
+  },
+  {
+    "isoWeek": "2025-W26",
+    "revenue": 207494,
+    "units": 12391
+  },
+  {
+    "isoWeek": "2025-W27",
+    "revenue": 208639,
+    "units": 12243
+  },
+  {
+    "isoWeek": "2025-W28",
+    "revenue": 207632,
+    "units": 12100
+  },
+  {
+    "isoWeek": "2025-W29",
+    "revenue": 205025,
+    "units": 11986
+  },
+  {
+    "isoWeek": "2025-W30",
+    "revenue": 201624,
+    "units": 11916
+  },
+  {
+    "isoWeek": "2025-W31",
+    "revenue": 198362,
+    "units": 11906
+  },
+  {
+    "isoWeek": "2025-W32",
+    "revenue": 196148,
+    "units": 11961
+  },
+  {
+    "isoWeek": "2025-W33",
+    "revenue": 195726,
+    "units": 12081
+  }
+]

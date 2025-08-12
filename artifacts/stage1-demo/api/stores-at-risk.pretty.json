@@ -1,0 +1,72 @@
+[
+  {
+    "storeId": 1000,
+    "storeName": "Chicago #102",
+    "zScore": -1.2,
+    "pctChange": -0.25,
+    "topSkuCount": 3
+  },
+  {
+    "storeId": 1001,
+    "storeName": "Austin #207",
+    "zScore": -1.3,
+    "pctChange": -0.27,
+    "topSkuCount": 5
+  },
+  {
+    "storeId": 1002,
+    "storeName": "Seattle #331",
+    "zScore": -1.4,
+    "pctChange": -0.29,
+    "topSkuCount": 7
+  },
+  {
+    "storeId": 1003,
+    "storeName": "Denver #145",
+    "zScore": -1.5,
+    "pctChange": -0.31,
+    "topSkuCount": 4
+  },
+  {
+    "storeId": 1004,
+    "storeName": "Brooklyn #411",
+    "zScore": -1.6,
+    "pctChange": -0.33,
+    "topSkuCount": 6
+  },
+  {
+    "storeId": 1005,
+    "storeName": "San Jose #256",
+    "zScore": -1.7,
+    "pctChange": -0.35,
+    "topSkuCount": 3
+  },
+  {
+    "storeId": 1006,
+    "storeName": "Atlanta #189",
+    "zScore": -1.8,
+    "pctChange": -0.37,
+    "topSkuCount": 5
+  },
+  {
+    "storeId": 1007,
+    "storeName": "Phoenix #298",
+    "zScore": -1.9,
+    "pctChange": -0.39,
+    "topSkuCount": 7
+  },
+  {
+    "storeId": 1008,
+    "storeName": "Boston #173",
+    "zScore": -2,
+    "pctChange": -0.41,
+    "topSkuCount": 4
+  },
+  {
+    "storeId": 1009,
+    "storeName": "Nashville #222",
+    "zScore": -2.1,
+    "pctChange": -0.43,
+    "topSkuCount": 6
+  }
+]

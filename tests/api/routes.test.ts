@@ -5,6 +5,7 @@ import { GET as getTrend } from '../../src/app/api/kpi/trend/route';
 import { GET as getRisk } from '../../src/app/api/stores-at-risk/route';
 import { GET as getDataHealth } from '../../src/app/api/data-health/route';
 import { GET as getPromotions } from '../../src/app/api/promotions/route';
+import { GET as getPromoAttribution } from '../../src/app/api/promo-attribution/route';
 
 function req(url: string, cookieDemo = true) {
   const headers = new Headers();
@@ -51,6 +52,42 @@ describe('API routes return JSON', () => {
       expect(pt).toHaveProperty('isoWeek');
       expect(pt).toHaveProperty('revenue');
       expect(pt).toHaveProperty('units');
+    }
+  });
+
+  it('/api/promo-attribution returns array of attribution items (demo and non-demo cookie)', async () => {
+    const url = 'http://test.local/api/promo-attribution?years=2024,2025&baselineWeeks=4';
+    const requests = [req(url, true), req(url, false)];
+    for (const r of requests) {
+      const res = await getPromoAttribution(r);
+      expect(res.ok).toBe(true);
+      const ct = res.headers.get('content-type') || '';
+      expect(ct.includes('application/json')).toBe(true);
+      const body = await res.json();
+      expect(Array.isArray(body)).toBe(true);
+      if (body.length > 0) {
+        const item = body[0];
+        expect(item).toHaveProperty('id');
+        expect(item).toHaveProperty('name');
+        expect(item).toHaveProperty('startDate');
+        expect(item).toHaveProperty('endDate');
+        expect(item).toHaveProperty('metrics');
+        expect(typeof item.metrics.baselineAvg).toBe('number');
+        expect(typeof item.metrics.promoAvg).toBe('number');
+        expect(typeof item.metrics.effectPct).toBe('number');
+        expect(item).toHaveProperty('deltaRevenue');
+        expect(typeof item.deltaRevenue).toBe('number');
+        expect(item).toHaveProperty('targetSkuCount');
+        expect(typeof item.targetSkuCount).toBe('number');
+        expect(item).toHaveProperty('halo');
+        expect(typeof item.halo.nonTargetEffectPct).toBe('number');
+        expect(item).toHaveProperty('weeks');
+        expect(Array.isArray(item.weeks)).toBe(true);
+        if (item.weeks.length > 0) {
+          expect(typeof item.weeks[0].isoWeek).toBe('string');
+          expect(typeof item.weeks[0].revenue).toBe('number');
+        }
+      }
     }
   });
 

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "../../../../lib/prisma";
 import { withApi } from "../../../../lib/api";
-import { DEMO_MODE as ENV_DEMO_MODE, USE_DB as ENV_USE_DB } from "../../../lib/config";
+import { getDemoModeEnv, getUseDbEnv } from "../../../lib/config";
 import { PSEUDO_UPC } from "../../../../lib/constants";
 
 export const dynamic = "force-dynamic";
@@ -56,24 +56,41 @@ export const GET = withApi(async (req: Request) => {
   let weeks = Number.parseInt(weeksParam ?? "12", 10);
   if (!Number.isFinite(weeks) || weeks <= 0) weeks = 12;
   weeks = Math.min(Math.max(weeks, 1), 104);
+  const wantObject = (() => {
+    const fmt = (url.searchParams.get("format") || "").toLowerCase();
+    const includeIssues = url.searchParams.get("includeIssues");
+    if (fmt === "object") return true;
+    if (includeIssues === "1" || includeIssues === "true") return true;
+    return false;
+  })();
 
   // Resolve effective mode
   const cookies = parseCookies(req.headers.get("cookie"));
   const cookieDemo = parseBool(cookies[DEMO_COOKIE]);
-  const demoMode = cookieDemo ?? ENV_DEMO_MODE;
-  const useDb = ENV_USE_DB && !demoMode;
+  const demoMode = cookieDemo ?? getDemoModeEnv();
+  const useDb = getUseDbEnv() && !demoMode;
 
   if (!useDb) {
-    return NextResponse.json(generateDemoHealth(weeks));
+    const demo = generateDemoHealth(weeks);
+    const issues: string[] = [];
+    const THRESH = 90;
+    for (const r of demo) {
+      if ((r.totalStores ?? 0) === 0) issues.push(`No store totals found for week ${r.isoWeek}`);
+      if ((r.pctFullAllocated ?? 0) < THRESH) issues.push(`Low allocation in week ${r.isoWeek}: ${r.pctFullAllocated.toFixed(1)}% (< ${THRESH}%)`);
+      if ((r.pseudoStores ?? 0) > 0 && (r.pctFullAllocated ?? 0) < 100) issues.push(`Pseudo-UPC allocations present in week ${r.isoWeek}`);
+    }
+    return NextResponse.json(wantObject ? { data: demo, issues } : demo);
   }
 
-  // Fetch latest N weeks
+  // Fetch latest N weeks (exclude future weeks)
+  const now = new Date();
   const weeksList = await prisma.week.findMany({
+    where: { startDate: { lte: now } },
     orderBy: { startDate: "desc" },
     take: weeks,
     select: { id: true, iso: true, startDate: true },
   });
-  if (weeksList.length === 0) return NextResponse.json([]);
+  if (weeksList.length === 0) return NextResponse.json(wantObject ? { data: [], issues: [] as string[] } : []);
 
   const ordered = [...weeksList].sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
 
@@ -101,5 +118,20 @@ export const GET = withApi(async (req: Request) => {
     })
   );
 
-  return NextResponse.json(results);
+  // Build issues/warnings list for UI visibility (non-blocking)
+  const issues: string[] = [];
+  const THRESH = 90;
+  for (const r of results) {
+    if ((r.totalStores ?? 0) === 0) {
+      issues.push(`No store totals found for week ${r.isoWeek}`);
+    }
+    if ((r.pctFullAllocated ?? 0) < THRESH) {
+      issues.push(`Low allocation in week ${r.isoWeek}: ${r.pctFullAllocated.toFixed(1)}% (< ${THRESH}%)`);
+    }
+    if ((r.pseudoStores ?? 0) > 0 && (r.pctFullAllocated ?? 0) < 100) {
+      issues.push(`Pseudo-UPC allocations present in week ${r.isoWeek} — missing Sales_Inv_Perf data may be causing under-allocation`);
+    }
+  }
+
+  return NextResponse.json(wantObject ? { data: results, issues } : results);
 });

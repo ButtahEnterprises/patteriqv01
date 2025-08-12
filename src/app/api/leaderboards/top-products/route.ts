@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "../../../../../lib/prisma";
 import { withApi } from "../../../../../lib/api";
-import { DEMO_MODE as ENV_DEMO_MODE, USE_DB as ENV_USE_DB } from "../../../../lib/config";
+import { getDemoModeEnv, getUseDbEnv } from "../../../../lib/config";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -66,8 +66,8 @@ export const GET = withApi(async (req: Request) => {
   // Resolve effective mode
   const cookies = parseCookies(req.headers.get("cookie"));
   const cookieDemo = parseBool(cookies[DEMO_COOKIE]);
-  const demoMode = cookieDemo ?? ENV_DEMO_MODE;
-  const useDb = ENV_USE_DB && !demoMode;
+  const demoMode = cookieDemo ?? getDemoModeEnv();
+  const useDb = getUseDbEnv() && !demoMode;
 
   if (!useDb) {
     return NextResponse.json(generateDemoProducts(by, limit));

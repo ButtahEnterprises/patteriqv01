@@ -45,6 +45,7 @@ npm run e2e:local
   - `leaderboards.spec.ts`
   - `promotions.spec.ts`
   - `drilldown.spec.ts`
+  - `weekly-facts.spec.ts`
 - Playwright config: `playwright.config.ts`
   - Reporter: HTML report in `./playwright-report`
   - Trace: `retain-on-failure` stored under `./test-results`
@@ -94,6 +95,35 @@ npm run e2e:local
 - Tests use explicit waits: navigate with `waitUntil: 'domcontentloaded'` and then wait for specific selectors (e.g., `await page.waitForSelector('[data-testid="..."]')`) before interacting. Avoid `networkidle` due to long-lived connections in Next.js.
 - Dashboard cards (`KpiTrendChart`, `DataHealthCard`, `StoresAtRiskList`) are server-fed; skeletons may not be visible in production builds due to SSR providing data at render time. Tests validate readiness via `aria-busy="false"` and presence of either a populated table or an explicit empty state.
 - Demo/Live toggling via cookie `piq_demo_mode` is handled in tests by adding a cookie to the Playwright context (no path, only `url`).
+
+### Weekly Sales — Facts E2E
+
+- Spec: `tests/e2e/weekly-facts.spec.ts`
+- Coverage:
+  - Demo mode: verifies Demo badge and empty state (`data-testid="facts-empty"`).
+  - Live mode: programmatically ingests XLSX fixtures via `/api/ingest/ulta`, verifies rows render, revenue sort, and allocator behavior (UPC presence/absence).
+  - Cross-mode toggle: flips `piq_demo_mode` cookie in the same session and verifies panel updates.
+- Selector strategy uses explicit `data-testid` attributes in `src/components/WeeklyFactsTable.tsx`: `weekly-facts`, `facts-badge` (with `data-mode`), `facts-empty`, `facts-row`, `store-code`, `upc`, `revenue`.
+- Week anchoring: tests navigate with an explicit `?week=YYYY-MM-DD` to ensure the dashboard fetches the ingested week, matching server-side fetching in `src/app/page.tsx`.
+- DB preflight: the spec calls `/api/health` and skips Live ingestion tests if the database is unavailable. Demo test still runs.
+
+Run locally (Demo only):
+```bash
+# Start in demo mode on 3007
+npm run build && npm run start:demo
+
+# Run only the Weekly Facts spec against external server
+PLAYWRIGHT_BASE_URL=http://localhost:3007 PLAYWRIGHT_NO_SERVER=1 npx playwright test tests/e2e/weekly-facts.spec.ts
+```
+
+Run locally (with DB):
+```bash
+# Ensure DATABASE_URL is set and DB is up
+PORT=3000 npm run dev
+
+# Run the spec (webServer auto-starts if needed)
+npx playwright test tests/e2e/weekly-facts.spec.ts
+```
 
 ## Troubleshooting & Recovery (CI E2E)
 

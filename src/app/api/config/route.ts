@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { withApi } from "../../../../lib/api";
-import { DEFAULT_TENANT, DEMO_MODE as ENV_DEMO_MODE, USE_DB as ENV_USE_DB, RISK_THRESHOLD } from "../../../lib/config";
+import { DEFAULT_TENANT, getDemoModeEnv, getUseDbEnv, RISK_THRESHOLD } from "../../../lib/config";
 
 export const dynamic = "force-dynamic";
 
@@ -29,12 +29,12 @@ function parseBool(v: unknown): boolean | undefined {
 export const GET = withApi(async (_req: Request) => {
   const cookies = parseCookies(_req.headers.get("cookie"));
   const cookieDemo = parseBool(cookies[DEMO_COOKIE]);
-  const demoMode = cookieDemo ?? ENV_DEMO_MODE;
+  const demoMode = cookieDemo ?? getDemoModeEnv();
 
   return NextResponse.json({
     demoMode,
     defaultTenant: DEFAULT_TENANT,
-    useDb: ENV_USE_DB && !demoMode,
+    useDb: getUseDbEnv() && !demoMode,
     riskThreshold: RISK_THRESHOLD,
   });
 });

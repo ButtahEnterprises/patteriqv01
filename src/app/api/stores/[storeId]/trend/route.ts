@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "../../../../../../lib/prisma";
 import { withApi } from "../../../../../../lib/api";
-import { DEMO_MODE as ENV_DEMO_MODE, USE_DB as ENV_USE_DB } from "../../../../../lib/config";
+import { getDemoModeEnv, getUseDbEnv } from "../../../../../lib/config";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -68,23 +68,95 @@ export const GET = withApi(async (req: Request) => {
   let weeks = Number.parseInt(weeksParam ?? "8", 10);
   if (!Number.isFinite(weeks) || weeks <= 0) weeks = 8;
   weeks = Math.min(Math.max(weeks, 1), 104);
+  const endWeekParam = url.searchParams.get("endWeek") || url.searchParams.get("week") || "latest";
 
   // Resolve effective mode
   const cookies = parseCookies(req.headers.get("cookie"));
   const cookieDemo = parseBool(cookies[DEMO_COOKIE]);
-  const demoMode = cookieDemo ?? ENV_DEMO_MODE;
-  const useDb = ENV_USE_DB && !demoMode;
+  const demoMode = cookieDemo ?? getDemoModeEnv();
+  const useDb = getUseDbEnv() && !demoMode;
 
   if (!useDb) {
-    const demo = generateDemoTrend(weeks, storeId);
+    // Support anchoring the synthetic trend
+    function mondayOfISOWeek(year: number, week: number): Date {
+      const jan4 = new Date(Date.UTC(year, 0, 4));
+      const jan4Day = jan4.getUTCDay() || 7;
+      const week1Mon = new Date(jan4);
+      week1Mon.setUTCDate(jan4.getUTCDate() - (jan4Day - 1));
+      const d = new Date(week1Mon);
+      d.setUTCDate(week1Mon.getUTCDate() + (week - 1) * 7);
+      return d;
+    }
+    function parseIsoWeek(iso: string): { year: number; week: number } | null {
+      const m = /^([0-9]{4})-W([0-9]{2})$/i.exec(iso.trim());
+      if (!m) return null;
+      const year = Number(m[1]);
+      const week = Number(m[2]);
+      if (!Number.isFinite(year) || !Number.isFinite(week) || week < 1 || week > 53) return null;
+      return { year, week };
+    }
+    let anchor: Date | undefined;
+    if (endWeekParam && endWeekParam !== "latest") {
+      if (/^\d{4}-W\d{2}$/i.test(endWeekParam)) {
+        const p = parseIsoWeek(endWeekParam);
+        if (p) anchor = mondayOfISOWeek(p.year, p.week);
+      } else if (/^\d{4}-\d{2}-\d{2}$/i.test(endWeekParam)) {
+        const d = new Date(endWeekParam);
+        if (!isNaN(d.getTime())) anchor = d;
+      }
+    }
+    const demo = (function generate(weeksCount: number, endDate?: Date) {
+      const out: Array<{ isoWeek: string; revenue: number; units: number }> = [];
+      const base = endDate ? new Date(Date.UTC(endDate.getUTCFullYear(), endDate.getUTCMonth(), endDate.getUTCDate())) : new Date();
+      const phase = (storeId % 7) / 7;
+      for (let i = weeksCount - 1; i >= 0; i--) {
+        const d = new Date(base);
+        d.setUTCDate(base.getUTCDate() - (weeksCount - 1 - i) * 7);
+        const t = weeksCount - i;
+        const revenue = Math.max(0, Math.round(60000 + t * 1200 + 8000 * Math.sin(i / 2.5 + phase)));
+        const units = Math.max(0, Math.round(3500 + t * 20 + 300 * Math.cos(i / 3 + phase)));
+        out.push({ isoWeek: isoFrom(d), revenue, units });
+      }
+      return out;
+    })(weeks, anchor);
     return NextResponse.json(demo);
   }
 
-  const recentWeeks = await prisma.week.findMany({
-    orderBy: { startDate: "desc" },
-    take: weeks,
-    select: { id: true, iso: true, startDate: true },
-  });
+  // Determine end week for DB query
+  let recentWeeks = [] as Array<{ id: number; iso: string; startDate: Date }>;
+  if (!endWeekParam || endWeekParam === "latest") {
+    recentWeeks = await prisma.week.findMany({
+      orderBy: { startDate: "desc" },
+      take: weeks,
+      select: { id: true, iso: true, startDate: true },
+    });
+  } else if (/^\d{4}-W\d{2}$/i.test(endWeekParam)) {
+    const target = await prisma.week.findFirst({ where: { iso: endWeekParam }, select: { startDate: true } });
+    if (target) {
+      recentWeeks = await prisma.week.findMany({
+        where: { startDate: { lte: target.startDate } },
+        orderBy: { startDate: "desc" },
+        take: weeks,
+        select: { id: true, iso: true, startDate: true },
+      });
+    } else {
+      recentWeeks = await prisma.week.findMany({ orderBy: { startDate: "desc" }, take: weeks, select: { id: true, iso: true, startDate: true } });
+    }
+  } else if (/^\d{4}-\d{2}-\d{2}$/i.test(endWeekParam)) {
+    const d = new Date(endWeekParam);
+    if (!isNaN(d.getTime())) {
+      recentWeeks = await prisma.week.findMany({
+        where: { startDate: { lte: d } },
+        orderBy: { startDate: "desc" },
+        take: weeks,
+        select: { id: true, iso: true, startDate: true },
+      });
+    } else {
+      recentWeeks = await prisma.week.findMany({ orderBy: { startDate: "desc" }, take: weeks, select: { id: true, iso: true, startDate: true } });
+    }
+  } else {
+    recentWeeks = await prisma.week.findMany({ orderBy: { startDate: "desc" }, take: weeks, select: { id: true, iso: true, startDate: true } });
+  }
 
   if (recentWeeks.length === 0) return NextResponse.json([]);
 

@@ -1,0 +1,1 @@
+latest=2025-W27 pctFullAllocated=100 >= 90.0? PASS

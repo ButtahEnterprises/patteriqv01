@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "../../../../lib/prisma";
 import { withApi } from "../../../../lib/api";
-import { DEMO_MODE as ENV_DEMO_MODE, USE_DB as ENV_USE_DB } from "../../../lib/config";
+import { getDemoModeEnv, getUseDbEnv } from "../../../lib/config";
 import type { Prisma } from "@prisma/client";
 import fs from "node:fs";
 import path from "node:path";
@@ -218,8 +218,8 @@ export const GET = withApi(async (req: Request) => {
 
   const cookies = parseCookies(req.headers.get("cookie"));
   const cookieDemo = parseBool(cookies[DEMO_COOKIE]);
-  const demoMode = cookieDemo ?? ENV_DEMO_MODE;
-  const useDb = ENV_USE_DB && !demoMode;
+  const demoMode = cookieDemo ?? getDemoModeEnv();
+  const useDb = getUseDbEnv() && !demoMode;
 
   // Test-only error injection to validate UI error states via E2E.
   // Set cookie 'piq_test_error_promotions' to 'true' to force a 500.

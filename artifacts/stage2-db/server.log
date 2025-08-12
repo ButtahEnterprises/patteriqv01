@@ -1,0 +1,30 @@
+
+> patterniq-v01@0.1.0 start
+> next start
+
+   ▲ Next.js 15.4.6
+   - Local:        http://localhost:3006
+   - Network:      http://192.168.1.208:3006
+
+ ✓ Starting...
+ ✓ Ready in 355ms
+[2025-08-11T21:29:23.776Z] INFO API success {
+  rid: '090849aa-a763-4f41-8cf7-846aea21ca03',
+  url: 'http://localhost:3006/api/health',
+  ms: 64
+}
+[2025-08-11T21:29:23.842Z] INFO API success {
+  rid: '0706568b-8772-482e-82d0-67d50e71416d',
+  url: 'http://localhost:3006/api/weeks',
+  ms: 5
+}
+[2025-08-11T21:29:23.858Z] INFO API success {
+  rid: '9692ac39-10ca-4cb8-90ec-e8decc95ee79',
+  url: 'http://localhost:3006/api/data-health?weeks=4',
+  ms: 2
+}
+[2025-08-11T21:29:23.881Z] INFO API success {
+  rid: 'bcf3dccb-d00e-46be-9e28-4f6dbe84a566',
+  url: 'http://localhost:3006/api/data-health?weeks=12&includeIssues=1',
+  ms: 2
+}

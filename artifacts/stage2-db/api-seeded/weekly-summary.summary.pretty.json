@@ -1,0 +1,22 @@
+{
+  "week": "2025-W32",
+  "tenant": "Demo Tenant",
+  "kpis": [
+    {
+      "label": "Total Sales — This Week",
+      "value": "$382"
+    },
+    {
+      "label": "Units Sold — This Week",
+      "value": 12
+    },
+    {
+      "label": "Active SKUs — This Week",
+      "value": 1
+    },
+    {
+      "label": "Active Stores — This Week",
+      "value": 1
+    }
+  ]
+}

@@ -59,7 +59,9 @@ function parseStoreSalesWorkbook(wb: XLSX.WorkBook, weekEndDate: Date): StoreSal
 
   for (let r = hdr.idx + 1; r < rows.length; r++) {
     const row = rows[r] || [];
-    const storeCode = normCell(row[hdr.colStoreNum]);
+    const storeCodeRaw = normCell(row[hdr.colStoreNum]);
+    // Preserve leading zeros when the store code is purely numeric
+    const storeCode = /^\d+$/.test(storeCodeRaw) ? storeCodeRaw.padStart(4, '0') : storeCodeRaw;
     const storeName = normCell(row[hdr.colStoreName]);
 
     // Stop at totals/footer or blank
